@@ -22,7 +22,7 @@ def _create_vision_transformer(variant, pretrained=False, **kwargs):
 
     # NOTE this extra code to support handling of repr size for in21k pretrained models
     pretrained_cfg = resolve_pretrained_cfg(variant, pretrained_cfg=kwargs.pop('pretrained_cfg', None))
-    default_num_classes = pretrained_cfg['num_classes']
+    default_num_classes = pretrained_cfg.num_classes
     num_classes = kwargs.get('num_classes', default_num_classes)
     repr_size = kwargs.pop('representation_size', None)
     if repr_size is not None and num_classes != default_num_classes:
